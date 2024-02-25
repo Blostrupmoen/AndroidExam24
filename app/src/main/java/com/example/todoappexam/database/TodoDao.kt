@@ -19,4 +19,7 @@ interface TodoDao {
 
     @Query("SELECT * FROM TodoItem")
     fun getAllTodos(): List<TodoItem>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertAll(todoItems: List<TodoItem>)
 }

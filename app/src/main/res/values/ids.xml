@@ -5,4 +5,5 @@
     <item name="todoTitleEditText" type="id" />
     <item name="rvTodos" type="id" />
     <item name="progressBar" type="id" />
+    <item name="fragmentContainer" type="id" />
 </resources>

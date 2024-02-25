@@ -7,16 +7,19 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.example.todoappexam.MyApplication
 import com.example.todoappexam.R
 import com.example.todoappexam.model.TodoItem
 import com.example.todoappexam.viewmodel.TodoViewModel
-
+import com.example.todoappexam.viewmodel.TodoViewModelFactory
 
 class EditTodoFragment : Fragment() {
 
-    private val viewModel: TodoViewModel by activityViewModels()
+    private val viewModel: TodoViewModel by viewModels {
+        TodoViewModelFactory((activity?.application as MyApplication).repository)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -30,8 +33,7 @@ class EditTodoFragment : Fragment() {
         val todoTitleEditText = view.findViewById<EditText>(R.id.todoTitleEditText)
         val saveButton = view.findViewById<Button>(R.id.saveButton)
 
-        // Du må legge til din logikk for å hente prioritet fra UI-komponentene
-        val todoPriority = 1 // Dette er et eksempel. Erstatt med din faktiske logikk.
+        val todoPriority = 1 // Anta at du har logikk for å hente prioritet
 
         saveButton.setOnClickListener {
             val todoTitle = todoTitleEditText.text.toString()
@@ -39,14 +41,10 @@ class EditTodoFragment : Fragment() {
             if (todoTitle.isNotEmpty()) {
                 val todoItem = TodoItem(title = todoTitle, priority = todoPriority, isCompleted = false)
                 viewModel.addTodo(todoItem)
-                // Bruk Navigation Component for å navigere tilbake
                 findNavController().popBackStack()
             } else {
-                // Vis feilmelding om at tittelen ikke kan være tom
+                // Vis feilmelding
             }
         }
     }
-
-
-
 }

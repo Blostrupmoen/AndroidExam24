@@ -1,20 +1,12 @@
 package com.example.todoappexam
 
-
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.todoappexam.ui.TodoFragment
-
+import com.example.todoappexam.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main) // Oppdater til korrekt R-klassen
-
-        if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainer, TodoFragment())
-                .commitNow()
-        }
+        setContentView(R.layout.activity_main) // Setter innholdet til layout-filen 'activity_main.xml'
     }
 }

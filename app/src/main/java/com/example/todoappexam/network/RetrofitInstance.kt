@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 // Enkel Singleton for å opprette en Retrofit-instans
 object RetrofitInstance {
-    private const val BASE_URL = "https://dummyapi.online/api/todos"
+    private const val BASE_URL = "https://dummyapi.online/api/todo/"
 
     // Lazy-initialiserer Retrofit og ApiService
     val apiService: ApiService by lazy {
