@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TodoAppExam</string>
+    <string name="todo_title_hint">Enter todo title</string>
+    <string name="save">Save</string>
+</resources>

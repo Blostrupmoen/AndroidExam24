@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/todoFragment">
+
+    <!-- Todos Overview Fragment -->
+    <fragment
+        android:id="@+id/todoFragment"
+        android:name="com.example.todoappexam.ui.TodoFragment"
+        android:label="Todos Overview">
+        <action
+            android:id="@+id/action_todoFragment_to_todoDetailsFragment"
+            app:destination="@id/todoDetailsFragment" />
+        <action
+            android:id="@+id/action_todoFragment_to_editTodoFragment"
+            app:destination="@id/editTodoFragment" />
+    </fragment>
+
+    <!-- Todo Item Details Fragment -->
+    <fragment
+        android:id="@+id/todoDetailsFragment"
+        android:name="com.example.todoappexam.ui.TodoDetailsFragment"
+        android:label="Todo Item Details">
+        <argument
+            android:name="todoId"
+            app:argType="integer" />
+    </fragment>
+
+    <!-- Edit Todo Fragment (for å legge til eller redigere en Todo) -->
+    <fragment
+        android:id="@+id/editTodoFragment"
+        android:name="com.example.todoappexam.ui.EditTodoFragment"
+        android:label="Edit Todo">
+        <!-- Du kan legge til argumenter her hvis du ønsker å sende data til EditTodoFragment, for eksempel for å redigere en eksisterende todo -->
+    </fragment>
+
+</navigation>
